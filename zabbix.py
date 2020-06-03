@@ -112,7 +112,7 @@ class ZabbixInventory(object):
             data[self.defaultgroup]['hosts'].append(hostname)
 
             for group in host['groups']:
-                groupname = group['name']
+                groupname = group['name'].replace(' ','_').replace('-','_')
 
                 if not groupname in data:
                     data[groupname] = self.hoststub()
