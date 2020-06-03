@@ -97,7 +97,7 @@ class ZabbixInventory(object):
                 template_ids.append(template['templateid'])
 
         hostsData = api.host.get({'output': 'extend', 'selectGroups': 'extend', 'selectInterfaces': 'extend',
-            'templateids': template_ids})
+            'templateids': template_ids, 'filter': {'status': '0'}})
 
         data = {}
         data[self.defaultgroup] = self.hoststub()
